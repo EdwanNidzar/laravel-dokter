@@ -124,35 +124,67 @@
               role="menu"
               data-accordion="false"
             >
+              @if (Auth::user()->role == 'dokter')
+              <!-- Dokter -->
               <li class="nav-item menu-open">
                 <a href="#" class="nav-link active">
                   <i class="nav-icon bi bi-speedometer"></i>
                   <p>
-                    Dashboard
+                    Dokter
                     <i class="nav-arrow bi bi-chevron-right"></i>
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="./index.html" class="nav-link active">
+                    <a href="{{ route('dokter.index') }}" class="nav-link active">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v1</p>
+                      <p>Dokter Dashboard</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index2.html" class="nav-link">
+                    <a href="{{ route('dokter.memeriksa') }}" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v2</p>
+                      <p>Memeriksa</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index3.html" class="nav-link">
+                    <a href="{{ route('obat.index') }}" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
-                      <p>Dashboard v3</p>
+                      <p>Obat</p>
                     </a>
                   </li>
                 </ul>
               </li>
+              <!-- End Dokter -->
+              @endif
+
+              @if (Auth::user()->role == 'pasien')
+              <!-- Pasien -->
+              <li class="nav-item menu-open">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon bi bi-speedometer"></i>
+                  <p>
+                    Pasien
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Pasien Dashboard</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('pasien.index') }}" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Periksa</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <!-- End Pasien -->
+              @endif
             </ul>
             <!--end::Sidebar Menu-->
           </nav>
